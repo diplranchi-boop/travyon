@@ -1,8 +1,8 @@
-const errorHandler = (err, _req, res, _next) => {
+const errorHandler = (err, req, res) => {
+  // eslint-disable-next-line no-console
+  console.error(err);
   const status = err.status || 500;
-  const message = err.message || 'Internal Server Error';
-
-  res.status(status).json({ error: message });
+  res.status(status).json({ error: err.message || 'Internal Server Error' });
 };
 
 module.exports = { errorHandler };

@@ -1,9 +1,8 @@
 const express = require('express');
+const health = require('./health');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({ status: 'ok' });
-});
+router.use('/health', health);
 
 module.exports = router;

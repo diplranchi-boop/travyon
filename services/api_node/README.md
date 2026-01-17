@@ -1,37 +1,30 @@
 # API Node Service
 
+Express-based API skeleton with MySQL connection pool, environment validation, and basic health route.
+
 ## Setup
 
-```bash
-cd services/api_node
-npm install
-```
+1. Copy `.env.example` to `.env` and update values.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run in development:
+   ```bash
+   npm run dev
+   ```
 
-## Environment variables
+## Scripts
 
-Create a `.env` file or export the following variables as needed:
+- `npm run dev`: start with nodemon
+- `npm run start`: start with node
+- `npm run test`: run Jest test suite
+- `npm run lint`: run ESLint
 
-- `PORT` (default: `3000`)
-- `DB_HOST` (default: `localhost`)
-- `DB_USER` (default: `root`)
-- `DB_PASSWORD` (default: empty)
-- `DB_NAME` (default: `app_db`)
-- `DB_PORT` (default: `3306`)
+## Health Check
 
-## Run
+`GET /health` returns:
 
-```bash
-npm run dev
-```
-
-## Start (production)
-
-```bash
-npm run start
-```
-
-## Health check
-
-```bash
-curl http://localhost:3000/health
+```json
+{ "status": "ok" }
 ```

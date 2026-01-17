@@ -1,8 +1,7 @@
-const { app } = require('./app');
+const app = require('./app');
 const { env } = require('./config/env');
 
-const port = env.port;
-
-app.listen(port, () => {
-  console.log(`API server listening on port ${port}`);
+app.listen(env.port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`API listening on port ${env.port}`);
 });
