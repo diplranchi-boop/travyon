@@ -58,3 +58,19 @@ npm run db:status
 ```bash
 npm test
 ```
+
+## Catalog endpoints
+
+```bash
+curl -H "Authorization: Bearer <access_token>" \
+  "http://localhost:3000/destinations?search=Goa&state=Goa&city=Panaji&page=1&limit=10"
+
+curl -H "Authorization: Bearer <access_token>" \
+  "http://localhost:3000/destinations/1"
+
+curl -H "Authorization: Bearer <access_token>" \
+  "http://localhost:3000/destinations/1/hotels?page=1&limit=10"
+
+curl -H "Authorization: Bearer <access_token>" \
+  "http://localhost:3000/packages?destination_id=1&page=1&limit=10"
+```
