@@ -47,6 +47,12 @@ The development OTP stub accepts `123456`. The development password stub accepts
 npm run db:migrate
 ```
 
+Seed catalog data:
+
+```bash
+npm run db:seed
+```
+
 To view applied migrations:
 
 ```bash
@@ -62,15 +68,19 @@ npm test
 ## Catalog endpoints
 
 ```bash
+curl -X POST "http://localhost:3000/auth/login/customer" \
+  -H "Content-Type: application/json" \
+  -d '{"mobile":"+911234567890","otp":"123456"}'
+
 curl -H "Authorization: Bearer <access_token>" \
-  "http://localhost:3000/destinations?search=Goa&state=Goa&city=Panaji&page=1&limit=10"
+  "http://localhost:3000/destinations?search=Goa&state=Goa&city=Panaji&page=1&page_size=10"
 
 curl -H "Authorization: Bearer <access_token>" \
   "http://localhost:3000/destinations/1"
 
 curl -H "Authorization: Bearer <access_token>" \
-  "http://localhost:3000/destinations/1/hotels?page=1&limit=10"
+  "http://localhost:3000/destinations/1/hotels?page=1&page_size=10"
 
 curl -H "Authorization: Bearer <access_token>" \
-  "http://localhost:3000/packages?destination_id=1&page=1&limit=10"
+  "http://localhost:3000/packages?destination_id=1&page=1&page_size=10"
 ```

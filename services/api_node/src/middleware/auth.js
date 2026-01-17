@@ -43,7 +43,21 @@ const requireRole = (...roles) => (req, res, next) => {
   return next();
 };
 
+const allowRole = (roles = []) => (req, res, next) => {
+  if (!req.user) {
+    return next(createError(401, "UNAUTHORIZED", "Missing authenticated user"));
+  }
+  if (!Array.isArray(roles) || roles.length === 0) {
+    return next(createError(500, "ROLE_CONFIG_ERROR", "No roles configured"));
+  }
+  if (!roles.includes(req.user.role)) {
+    return next(createError(403, "FORBIDDEN", "Insufficient role"));
+  }
+  return next();
+};
+
 module.exports = {
   requireAuth,
-  requireRole
+  requireRole,
+  allowRole
 };
