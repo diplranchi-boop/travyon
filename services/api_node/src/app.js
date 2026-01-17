@@ -1,12 +1,13 @@
-const express = require('express');
-const healthRouter = require('./routes/health');
-const { errorHandler } = require('./middleware/errorHandler');
+const express = require("express");
+const routes = require("./routes");
+const notFound = require("./middleware/notFound");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
 app.use(express.json());
-app.use('/health', healthRouter);
-
+app.use(routes);
+app.use(notFound);
 app.use(errorHandler);
 
-module.exports = { app };
+module.exports = app;
