@@ -1,37 +1,22 @@
 # API Node Service
 
+Production-ready Node.js + Express backend skeleton.
+
 ## Setup
 
 ```bash
-cd services/api_node
+cp .env.example .env
 npm install
 ```
 
-## Environment variables
-
-Create a `.env` file or export the following variables as needed:
-
-- `PORT` (default: `3000`)
-- `DB_HOST` (default: `localhost`)
-- `DB_USER` (default: `root`)
-- `DB_PASSWORD` (default: empty)
-- `DB_NAME` (default: `app_db`)
-- `DB_PORT` (default: `3306`)
-
-## Run
+## Running
 
 ```bash
 npm run dev
 ```
 
-## Start (production)
+## Tests
 
 ```bash
-npm run start
-```
-
-## Health check
-
-```bash
-curl http://localhost:3000/health
+npm test
 ```
