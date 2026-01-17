@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS hotels (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  destination_id BIGINT UNSIGNED NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  status ENUM('ACTIVE', 'INACTIVE') NOT NULL DEFAULT 'ACTIVE',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  KEY idx_hotels_destination (destination_id),
+  KEY idx_hotels_status (status),
+  CONSTRAINT fk_hotels_destination
+    FOREIGN KEY (destination_id) REFERENCES destinations(id)
+    ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
