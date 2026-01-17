@@ -1,4 +1,3 @@
 # UI Rules - Customer
 
-- Prioritize clarity and accessibility.
-- Keep flows focused on customer tasks.
+Paste your full Customer App spec (the one you provided earlier: splash, OTP login, home, explore, trip planner, booking, payment, confirmation, my trips, profile)
