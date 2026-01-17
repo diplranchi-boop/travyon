@@ -2,6 +2,8 @@ process.env.DB_HOST = "localhost";
 process.env.DB_USER = "user";
 process.env.DB_PASSWORD = "password";
 process.env.DB_NAME = "db";
+process.env.JWT_ACCESS_SECRET = "access-secret";
+process.env.JWT_REFRESH_SECRET = "refresh-secret";
 
 const request = require("supertest");
 const app = require("../src/app");
